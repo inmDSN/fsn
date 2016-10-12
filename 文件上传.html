@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://web.ganjiacheng.cn/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=no">
+    <title>文件上传</title>
+<style type="text/css">
+	a{text-decoration:none;} 
+	.btn_addPic{ 
+	display: block; 
+	position: relative; 
+	width: 140px; 
+	height: 39px; 
+	overflow: hidden; 
+	border: 1px solid #EBEBEB; 
+	background: none repeat scroll 0 0 #F3F3F3; 
+	color: #999999; 
+	cursor: pointer; 
+	text-align: center; 
+	} 
+	.btn_addPic span{display: block;line-height: 39px;} 
+	.btn_addPic em { 
+	background:url(http://p7.qhimg.com/t014ce592c1a0b2d489.png) 0 0; 
+	display: inline-block; 
+	width: 18px; 
+	height: 18px; 
+	overflow: hidden; 
+	margin: 10px 5px 10px 0; 
+	line-height: 20em; 
+	vertical-align: middle; 
+	} 
+	.btn_addPic:hover em{background-position:-19px 0;} 
+	.filePrew { 
+	display: block; 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 140px; 
+	height: 39px; 
+	font-size: 100px; /* 增大不同浏览器的可点击区域 */ 
+	opacity: 0; /* 实现的关键点 */ 
+	filter:alpha(opacity=0);/* 兼容IE */ 
+	} 
+	.btn{
+		display: block; 
+		position: relative; 
+		width: 140px; 
+		height: 39px; 
+		overflow: hidden; 
+		border: 1px solid #EBEBEB; 
+		background: none repeat scroll 0 0 #F3F3F3; 
+		color: #999999; 
+		cursor: pointer; 
+		text-align: center; 
+	    color: #333;
+	    background-color: #fff;
+	    border-color: #ccc;
+	}
+</style></head>
+
+<body>
+	<form action="http://web.ganjiacheng.cn/upload.php" method="post" enctype="multipart/form-data">
+    	<a href="javascript:;" class="file btn_addPic">
+    		<span><em>+</em>添加文件</span>
+		　　<input type="file" name="file" class="filePrew">
+		</a>
+			<h3 class="showFileName1"></h3>
+			<h3 class="fileerrorTip1"></h3>
+    	<input type="submit" class="btn">
+    </form>
+    <script src="./文件上传_files/jquery-3.1.1.min.js.下载"></script>
+    <script type="text/javascript">
+    $(".file").on("change","input[type='file']",function(){
+	    var filePath=$(this).val();
+	    if(filePath.indexOf("jpg")!=-1 || filePath.indexOf("png")!=-1 || filePath.indexOf("gif")!=-1||filePath.indexOf("html")!=-1){
+	        $(".fileerrorTip1").html("").hide();
+	        var arr=filePath.split('\\');
+	        var fileName=arr[arr.length-1];
+	        $(".showFileName1").html(fileName);
+	    }else{
+	        $(".showFileName1").html("");
+	        $(".fileerrorTip1").html("您未上传文件，或者您上传文件类型有误！").show();
+	        return false
+	    }
+	})
+    </script>
+
+</body></html>
