@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<table width="33%" height="193" border="1">
+  <tr>
+    <td colspan="4"><input type="text" size="50" name="result" id="result"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="     1     "  onclick="getNum(1)"></td>
+    <td><input type="button" value="     2     " onclick="getNum(2)"></td>
+    <td><input type="button" value="     3     " onclick="getNum(3)"></td>
+    <td><input type="button" value="     +     " onclick="getNum('+')"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="     4     " onclick="getNum(4)"></td>
+    <td><input type="button" value="     5     " onclick="getNum(5)"></td>
+    <td><input type="button" value="     6     " onclick="getNum(6)"></td>
+    <td><input type="button" value="     -     " onclick="getNum('-')"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="     7     " onclick="getNum(7)"></td>
+    <td><input type="button" value="     8     " onclick="getNum(8)"></td>
+    <td><input type="button" value="     9     " onclick="getNum(9)"></td>
+    <td><input type="button" value="     *     " onclick="getNum('*')"></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="     0     " onclick="getNum(0)"></td>
+    <td><input type="button" value="     .     " onclick="getNum('.')"></td>
+    <td><input type="button" value="     =     " onclick="getResult()"></td>
+    <td><input type="button" value="     /     " onclick="getNum('/')"></td>
+  </tr>
+</table>
+
+
+<script type="text/javascript" language="javascript">
+var clearContent=false;
+function getNum(num){
+if(clearContent){
+     document.getElementById("result").value="";
+      clearContent=false;}
+var objresult=document.getElementById("result");
+objresult.value+=num;}
+function getResult(){
+var objresult2=document.getElementById("result");
+
+
+
+objresult2.value=objresult2.value+"="+eval(objresult2.value);
+clearContent=true;
+}
+</script>
+	
+</body>
+</html>
